@@ -36,3 +36,4 @@ def read_counter(name):
     if name not in COUNTERS:
         return {"error": "Counter not found"}, status.HTTP_404_NOT_FOUND
     return {name: COUNTERS[name]}, status.HTTP_200_OK
+
