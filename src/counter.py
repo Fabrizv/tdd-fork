@@ -1,8 +1,10 @@
 from flask import Flask
 import status
+
 app = Flask(__name__)
 
 COUNTERS = {}
+
 
 # We will use the app decorator and create a route called slash counters.
 # specify the variable in route <name>
@@ -20,6 +22,7 @@ def create_counter(name):
     COUNTERS[name] = 0
     return {name: COUNTERS[name]}, status.HTTP_201_CREATED
 
+
 @app.route('/counters/<name>', methods=['PUT'])
 def update_counter(name):
     """Update a counter"""
@@ -36,4 +39,3 @@ def read_counter(name):
     if name not in COUNTERS:
         return {"error": "Counter not found"}, status.HTTP_404_NOT_FOUND
     return {name: COUNTERS[name]}, status.HTTP_200_OK
-
