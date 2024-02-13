@@ -64,3 +64,14 @@ class CounterTest(TestCase):
         self.assertEqual(result.status_code, status.HTTP_200_OK)
         result2 = client.get('/counters/doesnotexist')
         self.assertEqual(result2.status_code, status.HTTP_404_NOT_FOUND)
+
+
+    def test_delete_counter(self):
+        """It should error for deleting"""
+        client = app.test_client()
+        client.post('/counters/dc')
+        client.put('/counters/dc')
+        getResult = client.delete('/counters/dc')
+        self.assertEqual(getResult.status_code, status.HTTP_204_NO_CONTENT)
+        getResult = client.delete('/counters/dc2')
+        self.assertEqual(getResult.status_code, status.HTTP_404_NOT_FOUND)

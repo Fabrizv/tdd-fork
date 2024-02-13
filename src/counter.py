@@ -35,7 +35,19 @@ def update_counter(name):
 
 @app.route('/counters/<name>', methods=['GET'])
 def read_counter(name):
+    """Read a counter"""
     global COUNTERS
     if name not in COUNTERS:
         return {"error": "Counter not found"}, status.HTTP_404_NOT_FOUND
     return {name: COUNTERS[name]}, status.HTTP_200_OK
+
+
+@app.route('/counters/<name>', methods=['DELETE'])
+def delete_counter(name):
+    """Delete a counter"""
+    global COUNTERS
+    if name not in COUNTERS:
+        return {"error": "Counter {name} can't delete because it doesn't exist"}, status.HTTP_404_NOT_FOUND
+    else:
+        del COUNTERS[name]
+    return name, status.HTTP_204_NO_CONTENT
