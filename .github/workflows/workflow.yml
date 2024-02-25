@@ -57,7 +57,7 @@ jobs:
 
       - name: Run tests with nose
         run: |
-          nosetests --with-coverage --cover-package=your_package_name
+          nosetests -v --with-spec --spec-color --with-coverage --cover-package=app
 
       # Additional automation steps
 
