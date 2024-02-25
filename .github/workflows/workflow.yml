@@ -79,16 +79,16 @@ jobs:
 #          organization: "your-organization"
 #          token: ${{ secrets.SONAR_TOKEN }}
 
-      - name: Static code analysis with CodeQL
-        if: github.event_name == 'push'  # Run only on push events
-        uses: github/codeql-action@v1
-        with:
-          languages: python
-
-      - name: Vulnerability scanning with Snyk
-        if: github.event_name == 'push'  # Run only on push events
-        run: |
-          # Add Snyk scanning commands here
+#      - name: Static code analysis with CodeQL
+#        if: github.event_name == 'push'  # Run only on push events
+#        uses: github/codeql-action@v1
+#        with:
+#          languages: python
+#
+#      - name: Vulnerability scanning with Snyk
+#        if: github.event_name == 'push'  # Run only on push events
+#        run: |
+#          # Add Snyk scanning commands here
 
       # Additional automation steps
 
