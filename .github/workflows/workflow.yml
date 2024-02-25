@@ -72,12 +72,12 @@ jobs:
 
       # Additional automation steps
 
-      - name: Code quality analysis with SonarCloud
-        if: github.event_name == 'push'  # Run only on push events
-        uses: sonarsource/sonarcloud-github-action@v1
-        with:
-          organization: "your-organization"
-          token: ${{ secrets.SONAR_TOKEN }}
+#      - name: Code quality analysis with SonarCloud
+#        if: github.event_name == 'push'  # Run only on push events
+#        uses: sonarsource/sonarcloud-github-action@v1
+#        with:
+#          organization: "your-organization"
+#          token: ${{ secrets.SONAR_TOKEN }}
 
       - name: Static code analysis with CodeQL
         if: github.event_name == 'push'  # Run only on push events
