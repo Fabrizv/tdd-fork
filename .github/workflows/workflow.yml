@@ -56,15 +56,15 @@ jobs:
 
       # Additional automation steps
 
-      - name: Generate documentation
-        run: |
-          pip install -r docs/requirements.txt
-          sphinx-build -b html docs/ build/docs/
-
-      - name: Deploy to staging
-        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-        run: |
-          # Add deployment commands here
+#      - name: Generate documentation
+#        run: |
+#          pip install -r docs/requirements.txt
+#          sphinx-build -b html docs/ build/docs/
+#
+#      - name: Deploy to staging
+#        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+#        run: |
+#          # Add deployment commands here
 
       # Additional automation steps
 
